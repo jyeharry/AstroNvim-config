@@ -48,6 +48,9 @@ return {
             "yarn.lock",
             ".git/",
           },
+          cache_picker = {
+            num_pickers = 50,
+          },
         },
         extensions = {
           live_grep_args = {
@@ -72,7 +75,7 @@ return {
     "max397574/better-escape.nvim",
     config = function()
       require("better_escape").setup {
-        mapping = { "jk", "kj" },
+        mapping = { "jk", "kj", "JK", "KJ" },
       }
     end,
   },
@@ -115,6 +118,29 @@ return {
         -- disable for .vim files, but it work for another filetypes
         Rule("a", "a", "-vim")
       )
+    end,
+  },
+
+  { "echasnovski/mini.comment" },
+
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function()
+      return {
+        options = {
+          theme = "tokyonight-night",
+          section_separators = "",
+          component_separators = "",
+        },
+        sections = {
+          lualine_a = { "mode" },
+          lualine_b = { "branch", "diff" },
+          lualine_c = { { "filename", path = 1 } },
+          lualine_x = { "encoding", "fileformat", "filetype" },
+          lualine_y = { "diagnostics" },
+          lualine_z = { "searchcount", "%l/%L:%c" },
+        },
+      }
     end,
   },
 }

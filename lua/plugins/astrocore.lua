@@ -25,17 +25,20 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = true, -- sets vim.opt.relativenumber
+        foldlevel = 999,
+        mouse = "",
         number = true, -- sets vim.opt.number
-        spell = false, -- sets vim.opt.spell
-        signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-        wrap = true, -- sets vim.opt.wrap
+        relativenumber = true, -- sets vim.opt.relativenumber
         scrolloff = 999,
+        signcolumn = "auto", -- sets vim.opt.signcolumn to auto
+        spell = false, -- sets vim.opt.spell
+        wrap = true, -- sets vim.opt.wrap
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
+        gitblame_delay = 20,
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -44,6 +47,8 @@ return {
       -- first key is the mode
       n = {
         -- second key is the lefthand side of the map
+        ["<C-c>"] = { "<cmd>bdelete<cr>", desc = "Delete buffer" },
+        ["<C-/>"] = { "gccj", desc = "Comment line", remap = true },
 
         ["<C-l>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["<C-h>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
@@ -66,11 +71,18 @@ return {
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },
         ["<Leader>f"] = {
+          F = { "<cmd>Telescope pickers<cr>", "Telescope history" },
           g = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", "Grep" },
         },
+        ["<Space>"] = { "za", desc = "Toggle fold" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
         U = { "<C-r>", desc = "Redo" },
+        zz = { "<cmd>let &l:foldlevel = indent('.') / &shiftwidth<CR>zm" },
+        ["\\"] = false,
+      },
+      v = {
+        ["<C-/>"] = { "gc", desc = "Comment selection", remap = true },
       },
       t = {
         -- setting a mapping to false will disable it
