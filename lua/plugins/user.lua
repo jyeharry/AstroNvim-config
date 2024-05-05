@@ -128,7 +128,7 @@ return {
     opts = function()
       return {
         options = {
-          theme = "tokyonight-night",
+          theme = "tokyonight",
           section_separators = "",
           component_separators = "",
         },
