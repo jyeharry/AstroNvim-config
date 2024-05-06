@@ -93,7 +93,7 @@ return {
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
         ["<Leader>u"] = {
-          m = { "<cmd>MarkdownPreview<cr>", "Toffle markdown preview" },
+          m = { "<cmd>MarkdownPreviewToggle<cr>", "Toggle markdown preview" },
         },
         U = { "<C-r>", desc = "Redo" },
         zz = { "<cmd>let &l:foldlevel = indent('.') / &shiftwidth<CR>zm" },
