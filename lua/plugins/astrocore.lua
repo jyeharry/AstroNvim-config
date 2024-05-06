@@ -3,6 +3,17 @@
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 
+function Find_files_by_input_directory()
+  local user_input = vim.fn.input "Enter search directory: "
+  local telescope_command = "Telescope find_files hidden=true no_ignore=true search_dirs=%s"
+
+  if user_input ~= "" then
+    vim.cmd(string.format(telescope_command, user_input))
+  else
+    vim.cmd(string.format(telescope_command, "."))
+  end
+end
+
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
@@ -47,7 +58,10 @@ return {
       -- first key is the mode
       n = {
         -- second key is the lefthand side of the map
+        ["-"] = { "<cmd>split<cr>", desc = "Horizontal split" },
+
         ["<C-c>"] = { "<cmd>bdelete<cr>", desc = "Delete buffer" },
+
         ["<C-/>"] = { "gccj", desc = "Comment line", remap = true },
 
         ["<C-l>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
@@ -71,6 +85,7 @@ return {
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },
         ["<Leader>f"] = {
+          d = { Find_files_by_input_directory, "Files under Directory" },
           F = { "<cmd>Telescope pickers<cr>", "Telescope history" },
           g = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", "Grep" },
         },

@@ -1,0 +1,37 @@
+{
+  "Typescript React Function Component": {
+    "prefix": "fc",
+    "body": [
+      "import { FC } from 'react'",
+      "",
+      "interface ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}Props {",
+      "  $1",
+      "}",
+      "",
+      "export const ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}: FC<${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}Props> = ({ $2 }) => {",
+      "  return ($3)",
+      "}",
+    ],
+    "description": "Typescript React Function Component"
+  },
+  "NextJS Layout Component": {
+    "prefix": "lc",
+    "body": [
+      "import { FC, ReactNode } from 'react'",
+      "",
+      "interface $1LayoutProps {",
+      "  children: ReactNode",
+      "}",
+      "",
+      "export const $1Layout: FC<$1LayoutProps> = ({ children }) => {",
+      "  return ($2)",
+      "}",
+    ]
+  },
+  "useState": {
+    "prefix": "state",
+    "body": [
+      "const [$1, set${1/(.*)/${1:/capitalize}/}] = useState$3($2)"
+    ]
+  }
+}
