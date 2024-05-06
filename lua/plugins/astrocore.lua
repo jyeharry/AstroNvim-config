@@ -99,6 +99,10 @@ return {
         zz = { "<cmd>let &l:foldlevel = indent('.') / &shiftwidth<CR>zm" },
         ["\\"] = false,
       },
+      o = {
+        H = { "^", desc = "Beginning of line" },
+        L = { "$", desc = "End of line" },
+      },
       v = {
         ["<C-/>"] = { "gc", desc = "Comment selection", remap = true },
       },
