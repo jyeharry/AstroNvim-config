@@ -73,7 +73,16 @@ return {
         H = { "^", desc = "Beginning of line" },
         L = { "$", desc = "End of line" },
 
-        -- mappings seen under group name "Buffer"
+        ["<Leader>"] = {
+          y = {
+            name = "Yank",
+            a = { "<cmd>let @+=expand('%:p')<CR>:echo 'Copied absolute path'<CR>", "Absolute Path" },
+            r = { "<cmd>let @+=expand('%:.')<CR>:echo 'Copied relative path'<CR>", "Relative Path" },
+            d = { "<cmd>let @+=expand('%:h:t')<CR>:echo 'Copied directory name'<CR>", "Directory Name" },
+            f = { "<cmd>let @+=expand('%:t')<CR>:echo 'Copied filename'<CR>", "Filename" },
+          },
+        },
+
         ["<Leader>bD"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
