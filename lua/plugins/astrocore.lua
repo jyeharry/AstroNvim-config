@@ -98,6 +98,7 @@ return {
           d = { Find_files_by_input_directory, "Files under Directory" },
           F = { "<cmd>Telescope pickers<cr>", "Telescope history" },
           g = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", "Grep" },
+          R = { "<cmd>Telescope resume<cr>", "Resume Find" },
         },
         ["<Space>"] = { "za", desc = "Toggle fold" },
         -- quick save
