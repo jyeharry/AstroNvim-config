@@ -14,6 +14,19 @@ function Find_files_by_input_directory()
   end
 end
 
+function vim.getVisualSelection()
+  vim.cmd 'noau normal! "vy"'
+  local text = vim.fn.getreg "v"
+  vim.fn.setreg("v", {})
+
+  text = string.gsub(text, "\n", "")
+  if #text > 0 then
+    return text
+  else
+    return ""
+  end
+end
+
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
@@ -117,6 +130,18 @@ return {
       },
       v = {
         ["<C-/>"] = { "gc", desc = "Comment selection", remap = true },
+        ["<Leader>f"] = {
+          name = "Find",
+          g = {
+            function()
+              local text = vim.getVisualSelection()
+              require("telescope").extensions.live_grep_args.live_grep_args { default_text = text }
+            end,
+            "Grep selection",
+          },
+        },
+        H = { "^", desc = "Beginning of line" },
+        L = { "$", desc = "End of line" },
       },
       t = {
         -- setting a mapping to false will disable it
