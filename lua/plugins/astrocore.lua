@@ -36,6 +36,7 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
+        conceallevel = 1,
         foldlevel = 999,
         mouse = "",
         number = true, -- sets vim.opt.number
