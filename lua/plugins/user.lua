@@ -137,7 +137,14 @@ return {
           lualine_b = { "branch", "diff" },
           lualine_c = { { "filename", path = 1 } },
           lualine_x = { "encoding", "fileformat", "filetype" },
-          lualine_y = { "diagnostics" },
+          lualine_y = {
+            function()
+              local reg = vim.fn.reg_recording()
+              if reg == "" then return "" end
+              return "@" .. reg
+            end,
+            "diagnostics",
+          },
           lualine_z = { "searchcount", "%l/%L:%c" },
         },
       }
