@@ -51,6 +51,7 @@ return {
       opt = { -- vim.opt.<key>
         conceallevel = 1,
         foldlevel = 999,
+        iskeyword = "@,48-57,192-255",
         mouse = "",
         number = true, -- sets vim.opt.number
         relativenumber = true, -- sets vim.opt.relativenumber
