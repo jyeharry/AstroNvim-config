@@ -2,8 +2,9 @@ return {
   "epwalsh/obsidian.nvim",
   -- the obsidian vault in this default config  ~/obsidian-vault
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
-  -- event = { "bufreadpre " .. vim.fn.expand "~" .. "/my-vault/**.md" },
-  event = { "BufReadPre " .. vim.fn.expand "~" .. "/second-brain/**.md" },
+  -- event = { "BufReadPre " .. vim.fn.expand "~" .. "/second-brain/**.md" },
+  ft = '*',
+  event = {},
   dependencies = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
@@ -37,6 +38,17 @@ return {
       subdir = "templates",
       date_format = "%Y-%m-%d-%a",
       time_format = "%H:%M",
+    },
+
+    daily_notes = {
+      -- Optional, if you keep daily notes in a separate directory.
+      folder = "daily",
+      -- Optional, if you want to change the date format for the ID of daily notes.
+      date_format = "%Y-%m-%d",
+      -- Optional, if you want to change the date format of the default alias of daily notes.
+      alias_format = "%B %-d, %Y",
+      -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+      template = nil
     },
 
     note_frontmatter_func = function(note)
