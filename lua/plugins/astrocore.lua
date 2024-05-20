@@ -88,6 +88,9 @@ return {
         H = { "^", desc = "Beginning of line" },
         L = { "$", desc = "End of line" },
 
+        p = { "p=`]", desc = "Paste and match indentation"},
+        P = { "P=`]", desc = "Paste before and match indentation"},
+
         ["<Leader>"] = {
           y = {
             name = "Yank",
