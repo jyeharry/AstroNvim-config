@@ -3,29 +3,7 @@
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 
-function Find_files_by_input_directory()
-  local user_input = vim.fn.input "Enter search directory: "
-  local telescope_command = "Telescope find_files hidden=true no_ignore=true search_dirs=%s"
-
-  if user_input ~= "" then
-    vim.cmd(string.format(telescope_command, user_input))
-  else
-    vim.cmd(string.format(telescope_command, "."))
-  end
-end
-
-function vim.getVisualSelection()
-  vim.cmd 'noau normal! "vy"'
-  local text = vim.fn.getreg "v"
-  vim.fn.setreg("v", {})
-
-  text = string.gsub(text, "\n", "")
-  if #text > 0 then
-    return text
-  else
-    return ""
-  end
-end
+local functions = require "functions"
 
 ---@type LazySpec
 return {
@@ -88,8 +66,8 @@ return {
         H = { "^", desc = "Beginning of line" },
         L = { "$", desc = "End of line" },
 
-        p = { "p=`]", desc = "Paste and match indentation"},
-        P = { "P=`]", desc = "Paste before and match indentation"},
+        p = { "p=`]", desc = "Paste and match indentation" },
+        P = { "P=`]", desc = "Paste before and match indentation" },
 
         ["<Leader>"] = {
           y = {
@@ -113,7 +91,16 @@ return {
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },
         ["<Leader>f"] = {
-          d = { Find_files_by_input_directory, "Files under Directory" },
+          d = {
+            function()
+              functions.prompt_command(
+                "Telescope find_files hidden=true no_ignore=true search_dirs=%s",
+                "Enter search directory: ",
+                "."
+              )
+            end,
+            "Files under Directory",
+          },
           F = { "<cmd>Telescope pickers<cr>", "Telescope history" },
           g = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", "Grep" },
           R = { "<cmd>Telescope resume<cr>", "Resume Find" },
@@ -138,7 +125,7 @@ return {
           name = "Find",
           g = {
             function()
-              local text = vim.getVisualSelection()
+              local text = functions.getVisualSelection()
               require("telescope").extensions.live_grep_args.live_grep_args { default_text = text }
             end,
             "Grep selection",

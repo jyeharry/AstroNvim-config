@@ -1,9 +1,11 @@
+local functions = require("functions")
+
 return {
   "epwalsh/obsidian.nvim",
   -- the obsidian vault in this default config  ~/obsidian-vault
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
   -- event = { "BufReadPre " .. vim.fn.expand "~" .. "/second-brain/**.md" },
-  ft = '*',
+  ft = "*",
   event = {},
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -24,6 +26,47 @@ return {
               end,
               desc = "Obsidian Follow Link",
             },
+            ["<leader>O"] = {
+              name = "Obsidian",
+              D = { "<Cmd>ObsidianDailies<CR>", "Dailies" },
+              T = { "<Cmd>ObsidianTags<CR>", "Tags" },
+              b = { "<Cmd>ObsidianBacklinks<CR>", "Backlinks" },
+              c = { "<Cmd>ObsidianToggleCheckbox<CR>", "Toggle Checkbox" },
+              d = { "<Cmd>ObsidianToday<CR>", "Today" },
+              f = { "<Cmd>ObsidianQuickSwitch<CR>", "Find notes" },
+              g = { "<Cmd>ObsidianSearch<CR>", "Grep" },
+              i = { "<Cmd>ObsidianPasteImg<CR>", "Paste Image" },
+              l = { "<Cmd>ObsidianLinks<CR>", "Links" },
+              n = { "<Cmd>ObsidianNew<CR>", "New Note" },
+              o = { "<Cmd>ObsidianOpen<CR>", "Open" },
+              p = { "<Cmd>ObsidianTemplate<CR>", "Insert Template" },
+              r = { "<Cmd>ObsidianRename<CR>", "Rename" },
+              t = { "<Cmd>ObsidianTomorrow<CR>", "Tomorrow" },
+              y = { "<Cmd>ObsidianYesterday<CR>", "Yesterday" },
+            },
+          },
+          v = {
+            ["<leader>O"] = {
+              name = "Obsidian",
+              e = {
+                function()
+                  functions.prompt_command(
+                    "ObsidianExtractNote",
+                    "Enter title of note to extract to (blank to use selection): ",
+                    functions.getVisualSelection()
+                  )
+                end,
+                "Extract",
+              },
+              l = {
+                function() functions.prompt_command("ObsidianLink", "Enter title of note to link to (blank to use selection): ") end,
+                "Link",
+              },
+              n = {
+                function() functions.prompt_command("ObsidianLinkNew", "Enter title of new note (blank to use selection): ") end,
+                "New Note",
+              },
+            },
           },
         },
       },
@@ -33,11 +76,35 @@ return {
     dir = vim.env.HOME .. "/second-brain", -- specify the vault location. no need to call 'vim.fn.expand' here
     use_advanced_uri = true,
     finder = "telescope.nvim",
+    note_id_func = function(title) return title end,
 
     templates = {
       subdir = "templates",
       date_format = "%Y-%m-%d-%a",
       time_format = "%H:%M",
+    },
+
+    notes_subdir = "inbox",
+
+    mappings = {
+      ["gf"] = {
+        action = function()
+          if require("obsidian").util.cursor_on_markdown_link() then
+            return "<Cmd>ObsidianFollowLink<CR>"
+          else
+            return "gf"
+          end
+        end,
+        opts = { noremap = false, expr = true, buffer = true },
+        desc = "Obsidian Follow Link",
+      },
+      ["<leader>ch"] = {
+        action = function() return require("obsidian").util.toggle_checkbox() end,
+        opts = { buffer = true },
+      },
+      ["<cr>"] = {
+        action = function() end,
+      },
     },
 
     daily_notes = {
@@ -48,7 +115,7 @@ return {
       -- Optional, if you want to change the date format of the default alias of daily notes.
       alias_format = "%B %-d, %Y",
       -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-      template = nil
+      template = nil,
     },
 
     note_frontmatter_func = function(note)
