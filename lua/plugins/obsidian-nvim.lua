@@ -1,4 +1,4 @@
-local functions = require("functions")
+local functions = require "functions"
 
 return {
   "epwalsh/obsidian.nvim",
@@ -25,6 +25,11 @@ return {
                 end
               end,
               desc = "Obsidian Follow Link",
+            },
+            ["<leader>x"] = {
+              function() return require("obsidian").util.toggle_checkbox() end,
+              buffer = true,
+              desc = "Toggle checkbox",
             },
             ["<leader>O"] = {
               name = "Obsidian",
@@ -59,11 +64,15 @@ return {
                 "Extract",
               },
               l = {
-                function() functions.prompt_command("ObsidianLink", "Enter title of note to link to (blank to use selection): ") end,
+                function()
+                  functions.prompt_command("ObsidianLink", "Enter title of note to link to (blank to use selection): ")
+                end,
                 "Link",
               },
               n = {
-                function() functions.prompt_command("ObsidianLinkNew", "Enter title of new note (blank to use selection): ") end,
+                function()
+                  functions.prompt_command("ObsidianLinkNew", "Enter title of new note (blank to use selection): ")
+                end,
                 "New Note",
               },
             },
@@ -97,13 +106,6 @@ return {
         end,
         opts = { noremap = false, expr = true, buffer = true },
         desc = "Obsidian Follow Link",
-      },
-      ["<leader>ch"] = {
-        action = function() return require("obsidian").util.toggle_checkbox() end,
-        opts = { buffer = true },
-      },
-      ["<cr>"] = {
-        action = function() end,
       },
     },
 
