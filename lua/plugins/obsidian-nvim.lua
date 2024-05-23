@@ -27,7 +27,7 @@ return {
               desc = "Obsidian Follow Link",
             },
             ["<leader>x"] = {
-              function() return require("obsidian").util.toggle_checkbox() end,
+              "<Cmd>ObsidianToggleCheckbox<CR>",
               buffer = true,
               desc = "Toggle checkbox",
             },
@@ -136,5 +136,13 @@ return {
     -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
     -- URL it will be ignored but you can customize this behavior here.
     follow_url_func = vim.ui.open or function(url) require("astrocore").system_open(url) end,
+
+    ui = {
+      checkboxes = {
+        [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+        ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+        ["x"] = { char = "", hl_group = "ObsidianDone" },
+      }
+    }
   },
 }
