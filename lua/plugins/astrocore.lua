@@ -22,6 +22,7 @@ return {
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
       virtual_text = true,
+      signs = false,
       underline = true,
     },
     -- vim options can be configured here
@@ -34,7 +35,7 @@ return {
         number = true, -- sets vim.opt.number
         relativenumber = true, -- sets vim.opt.relativenumber
         scrolloff = 999,
-        signcolumn = "no", -- sets vim.opt.signcolumn to auto
+        signcolumn = "yes", -- sets vim.opt.signcolumn to auto
         spell = false, -- sets vim.opt.spell
         virtualedit = "all",
         wrap = true, -- sets vim.opt.wrap
