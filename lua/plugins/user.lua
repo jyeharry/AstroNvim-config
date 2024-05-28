@@ -158,4 +158,40 @@ return {
       opts.mapping["<CR>"] = cmp.mapping.confirm { select = true }
     end,
   },
+
+  {
+    "Exafunction/codeium.vim",
+    enabled = true,
+  },
+
+  {
+    "zbirenbaum/copilot.lua",
+    enabled = false,
+    opts = {
+      panel = {
+        auto_refresh = true,
+        keymap = {
+          accept = "<C-g>",
+          jump_next = "<C-;>",
+          jump_prev = "<C-,>",
+        },
+        layout = {
+          position = "right",
+        }
+      },
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        debounce = 75,
+        keymap = {
+          accept = "<C-g>",
+          accept_word = false,
+          accept_line = false,
+          next = "<C-;>",
+          prev = "<C-,>",
+          dismiss = "<C-x>",
+        },
+      },
+    },
+  },
 }

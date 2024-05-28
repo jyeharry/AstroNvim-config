@@ -107,6 +107,10 @@ return {
         opts = { noremap = false, expr = true, buffer = true },
         desc = "Obsidian Follow Link",
       },
+      ["<leader>x"] = {
+        action = "<Cmd>ObsidianToggleCheckbox<CR>",
+        desc = "Toggle checkbox",
+      },
     },
 
     daily_notes = {

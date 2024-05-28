@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.comment.mini-comment" },
   { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.codeium-vim" },
+  { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.editing-support.nvim-treesitter-endwise" },
   { import = "astrocommunity.git.git-blame-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
