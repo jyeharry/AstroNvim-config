@@ -58,8 +58,8 @@ return {
 
         ["<C-/>"] = { "gccj", desc = "Comment line", remap = true },
 
-        ["<C-l>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["<C-h>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        ["<C-l>"] = { "<cmd>bnext<CR>", desc = "Next buffer" },
+        ["<C-h>"] = { "<cmd>bprevious<CR>", desc = "Previous buffer" },
         ["<C-j>"] = { "<C-d>", desc = "Scroll down half a page" },
         ["<C-k>"] = { "<C-u>", desc = "Scroll up half a page" },
 
