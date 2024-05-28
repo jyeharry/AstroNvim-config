@@ -34,7 +34,7 @@ return {
         number = true, -- sets vim.opt.number
         relativenumber = true, -- sets vim.opt.relativenumber
         scrolloff = 999,
-        signcolumn = "auto", -- sets vim.opt.signcolumn to auto
+        signcolumn = "no", -- sets vim.opt.signcolumn to auto
         spell = false, -- sets vim.opt.spell
         virtualedit = "all",
         wrap = true, -- sets vim.opt.wrap
