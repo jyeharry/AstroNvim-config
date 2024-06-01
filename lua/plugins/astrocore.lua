@@ -69,6 +69,8 @@ return {
         ["<C-j>"] = { "<C-d>", desc = "Scroll down half a page" },
         ["<C-k>"] = { "<C-u>", desc = "Scroll up half a page" },
 
+        gr = { "<cmd>Telescope lsp_references<cr>", desc = "Go to references" },
+
         H = { "^", desc = "Beginning of line" },
         L = { "$", desc = "End of line" },
 
