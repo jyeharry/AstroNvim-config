@@ -26,11 +26,6 @@ return {
               end,
               desc = "Obsidian Follow Link",
             },
-            ["<leader>x"] = {
-              "<Cmd>ObsidianToggleCheckbox<CR>",
-              buffer = true,
-              desc = "Toggle checkbox",
-            },
             ["<leader>O"] = {
               name = "Obsidian",
               D = { "<Cmd>ObsidianDailies<CR>", "Dailies" },

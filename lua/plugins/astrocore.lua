@@ -59,6 +59,11 @@ return {
 
         ["<C-/>"] = { "gccj", desc = "Comment line", remap = true },
 
+        ["<C-.>"] = { "2<C-w>>", desc = "Increase width" },
+        ["<C-,>"] = { "2<C-w><", desc = "Decrease width" },
+        ["<C-+>"] = { "2<C-w>+", desc = "Increase height" },
+        [""] = { "2<C-w>-", desc = "Decrease height" },
+
         ["<C-l>"] = { "<cmd>bnext<CR>", desc = "Next buffer" },
         ["<C-h>"] = { "<cmd>bprevious<CR>", desc = "Previous buffer" },
         ["<C-j>"] = { "<C-d>", desc = "Scroll down half a page" },

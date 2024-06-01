@@ -13,7 +13,9 @@ return {
   { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.codeium-vim" },
   { import = "astrocommunity.completion.copilot-lua" },
+  { import = "astrocommunity.diagnostics.trouble-nvim" },
   { import = "astrocommunity.editing-support.nvim-treesitter-endwise" },
+  { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.git-blame-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.motion.nvim-surround" },
@@ -30,5 +32,6 @@ return {
   { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.swift" },
   { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.test.neotest" },
   -- import/override with your plugins folder
 }
