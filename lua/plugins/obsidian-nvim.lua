@@ -84,8 +84,8 @@ return {
 
     templates = {
       subdir = "templates",
-      date_format = "%Y-%m-%d-%a",
-      time_format = "%H:%M",
+      date_format = "%-d of %B, %Y",
+      time_format = "%I:%M%p",
     },
 
     notes_subdir = "inbox",
@@ -102,7 +102,7 @@ return {
         opts = { noremap = false, expr = true, buffer = true },
         desc = "Obsidian Follow Link",
       },
-      ["<leader>x"] = {
+      ["<leader>Ox"] = {
         action = "<Cmd>ObsidianToggleCheckbox<CR>",
         desc = "Toggle checkbox",
       },
@@ -116,7 +116,7 @@ return {
       -- Optional, if you want to change the date format of the default alias of daily notes.
       alias_format = "%B %-d, %Y",
       -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-      template = nil,
+      template = 'daily.md',
     },
 
     note_frontmatter_func = function(note)
