@@ -102,6 +102,10 @@ return {
         opts = { noremap = false, expr = true, buffer = true },
         desc = "Obsidian Follow Link",
       },
+      ["cx"] = {
+        action = "<Cmd>ObsidianToggleCheckbox<CR>",
+        desc = "Toggle checkbox",
+      },
       ["<leader>Ox"] = {
         action = "<Cmd>ObsidianToggleCheckbox<CR>",
         desc = "Toggle checkbox",
