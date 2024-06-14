@@ -8,21 +8,18 @@ return {
         n = {
           [prefix .. "t"] = {
             function()
-              require("neotest").output_panel.clear()
               require("neotest").run.run()
             end,
             desc = "Run test",
           },
           [prefix .. "f"] = {
             function()
-              require("neotest").output_panel.clear()
               require("neotest").run.run(vim.fn.expand "%")
             end,
             desc = "Run all tests in file",
           },
           [prefix .. "p"] = {
             function()
-              require("neotest").output_panel.clear()
               require("neotest").run.run(vim.fn.getcwd())
             end,
             desc = "Run all tests in project",

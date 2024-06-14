@@ -16,7 +16,7 @@ return {
             },
             [prefix .. "c"] = { "<cmd>DiffviewClose<CR>", desc = "Close" },
             [prefix .. "f"] = { 
-              function() f.prompt_command("DiffviewClose", "Enter paths to diff and/or --range: ") end, desc = "File history" },
+              function() f.prompt_command("DiffviewFileHistory", "Enter paths to diff and/or --range: ") end, desc = "File history" },
             [prefix .. "r"] = { "<cmd>DiffviewRefresh<CR>", desc = "Refresh" },
           },
         },
