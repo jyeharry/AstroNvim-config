@@ -66,8 +66,6 @@ return {
 
         ["<C-l>"] = { "<cmd>bnext<CR>", desc = "Next buffer" },
         ["<C-h>"] = { "<cmd>bprevious<CR>", desc = "Previous buffer" },
-        ["<C-j>"] = { "<C-d>", desc = "Scroll down half a page" },
-        ["<C-k>"] = { "<C-u>", desc = "Scroll up half a page" },
 
         gr = { "<cmd>Telescope lsp_references<cr>", desc = "Go to references" },
 
