@@ -29,8 +29,6 @@ end
 local function set_keymaps()
   set_keymap('n', '<C-l>', ':bnext<CR>', { desc = "Next buffer" })
   set_keymap('n', '<C-h>', ':bprevious<CR>', { desc = "Previous buffer" })
-  set_keymap('n', "<C-k>", "<C-u>", { desc = "Scroll up half a page" })
-  set_keymap('n', "<C-j>", "<C-d>", { desc = "Scroll down half a page" })
 end
 
 set_keymaps()
