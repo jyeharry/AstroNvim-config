@@ -107,7 +107,7 @@ return {
             end,
             "Files under Directory",
           },
-          F = { "<cmd>Telescope pickers<cr>", "Telescope history" },
+          H = { "<cmd>Telescope pickers<cr>", "Telescope history" },
           g = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", "Grep" },
           R = { "<cmd>Telescope resume<cr>", "Resume Find" },
         },
