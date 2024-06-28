@@ -15,11 +15,20 @@ return {
               desc = "Open",
             },
             [prefix .. "c"] = { "<cmd>DiffviewClose<CR>", desc = "Close" },
-            [prefix .. "f"] = { 
-              function() f.prompt_command("DiffviewFileHistory", "Enter paths to diff and/or --range: ") end, desc = "File history" },
+            [prefix .. "f"] = {
+              function() f.prompt_command("DiffviewFileHistory", "Enter paths to diff and/or --range: ") end,
+              desc = "File history",
+            },
             [prefix .. "r"] = { "<cmd>DiffviewRefresh<CR>", desc = "Refresh" },
           },
         },
+      },
+    },
+  },
+  opts = {
+    view = {
+      merge_tool = {
+        layout = "diff3_mixed",
       },
     },
   },
