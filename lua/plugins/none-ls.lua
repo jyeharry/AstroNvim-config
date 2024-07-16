@@ -13,13 +13,13 @@ return {
     config.sources = {
       -- Set a formatter
       -- null_ls.builtins.formatting.stylua,
-      -- null_ls.builtins.formatting.prettier,
       null_ls.builtins.formatting.black.with {
         extra_args = { "--line-length=80" },
       },
       null_ls.builtins.formatting.prettierd.with {
         env = { PRETTIERD_DEFAULT_CONFIG = vim.fn.expand "$NVD/config/formatters/.prettierrc" },
       },
+      null_ls.builtins.formatting.swift_format,
     }
     return config -- return final config table
   end,

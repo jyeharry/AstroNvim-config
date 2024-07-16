@@ -33,6 +33,7 @@ return {
         "pyright",
         "stylua",
         "svelte-language-server",
+        "swiftlint",
         "typescript-language-server",
         "vim-language-server",
         "vint",
