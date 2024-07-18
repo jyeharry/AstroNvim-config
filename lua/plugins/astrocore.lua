@@ -100,9 +100,10 @@ return {
           d = {
             function()
               functions.prompt_command(
-                "Telescope find_files hidden=true no_ignore=true search_dirs=%s",
+                "Telescope find_files hidden=true no_ignore=true search_dirs=",
                 "Enter search directory: ",
-                "."
+                ".",
+                false
               )
             end,
             "Files under Directory",
