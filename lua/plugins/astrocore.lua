@@ -108,6 +108,7 @@ return {
             end,
             "Files under Directory",
           },
+          f = { "<cmd>Telescope find_files layout_config={width=0.9,preview_width=0.525}<cr>", "Find files" },
           H = { "<cmd>Telescope pickers layout_config={width=0.9,preview_width=0.525}<cr>", "Telescope history" },
           g = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args({layout_strategy='horizontal',layout_config={width=0.9, preview_width=0.525}})<CR>", "Grep" },
           R = { "<cmd>Telescope resume layout_config={width=0.9,preview_width=0.525}<cr>", "Resume Find" },
