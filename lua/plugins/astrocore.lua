@@ -108,9 +108,9 @@ return {
             end,
             "Files under Directory",
           },
-          H = { "<cmd>Telescope pickers<cr>", "Telescope history" },
-          g = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", "Grep" },
-          R = { "<cmd>Telescope resume<cr>", "Resume Find" },
+          H = { "<cmd>Telescope pickers layout_config={width=0.9,preview_width=0.525}<cr>", "Telescope history" },
+          g = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args({layout_strategy='horizontal',layout_config={width=0.9, preview_width=0.525}})<CR>", "Grep" },
+          R = { "<cmd>Telescope resume layout_config={width=0.9,preview_width=0.525}<cr>", "Resume Find" },
         },
         ["<Space>"] = { "za", desc = "Toggle fold" },
         -- quick save
