@@ -67,7 +67,7 @@ return {
         ["<C-l>"] = { "<cmd>bnext<CR>", desc = "Next buffer" },
         ["<C-h>"] = { "<cmd>bprevious<CR>", desc = "Previous buffer" },
 
-        gr = { "<cmd>Telescope lsp_references<cr>", desc = "Go to references" },
+        gr = { "<cmd>Telescope lsp_references layout_config={width=0.9,preview_width=0.525}<cr>", desc = "Go to references" },
 
         H = { "^", desc = "Beginning of line" },
         L = { "$", desc = "End of line" },
