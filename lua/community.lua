@@ -30,6 +30,7 @@ return {
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.php" },
   { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.ruby" },
   { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.swift" },
   { import = "astrocommunity.pack.typescript" },
